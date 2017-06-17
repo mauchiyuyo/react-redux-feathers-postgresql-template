@@ -1,5 +1,5 @@
 
-# React Redux Universal Hot Example
+# React Redux Feathrsjs PostgreSQL Universal Hot Example
 
 [![Build Status](https://travis-ci.org/bertho-zero/react-redux-universal-hot-example.svg?branch=master&style=flat-square)](https://travis-ci.org/bertho-zero/react-redux-universal-hot-example)
 [![Dependency Status](https://david-dm.org/bertho-zero/react-redux-universal-hot-example.svg?style=flat-square)](https://david-dm.org/bertho-zero/react-redux-universal-hot-example)
@@ -11,12 +11,12 @@
 
 This is a starter boilerplate app I've put together using the following technologies:
 
-* ~~Isomorphic~~ [Universal](https://medium.com/@mjackson/universal-javascript-4761051b7ae9) rendering
 * Both client and server make calls to load data from separate API server
 * [React](https://github.com/facebook/react)
 * [React Router](https://github.com/reactjs/react-router)
 * [Express](http://expressjs.com)
 * [Feathers](http://feathersjs.com/)
+* [PostgreSQL](https://www.postgresql.org/)
 * [Passport](http://passportjs.org), [feathers-authentication](https://github.com/feathersjs/feathers-authentication) and [redux-auth-wrapper](https://github.com/mjrussell/redux-auth-wrapper) for authentication
 * [Babel](http://babeljs.io) for ES6 and ES7 magic
 * [Webpack](https://webpack.js.org/) for bundling
@@ -35,7 +35,8 @@ This is a starter boilerplate app I've put together using the following technolo
 * [webpack-isomorphic-tools](https://github.com/halt-hammerzeit/webpack-isomorphic-tools) to allow require() work for statics both on client and server
 * [Jest](https://facebook.github.io/jest/) and [mocha](https://mochajs.org/) to allow writing unit tests for the project.
 
-I cobbled this together from a wide variety of similar "starter" repositories. As I post this in June 2015, all of these libraries are right at the bleeding edge of web development. They may fall out of fashion as quickly as they have come into it, but I personally believe that this stack is the future of web development and will survive for several years. I'm building my new projects like this, and I recommend that you do, too.
+As I post this in June 2017, all of these libraries are right at the bleeding edge of web development.
+I post this template for web developers who aim to build web applications in react, redux, feathersjs, postgresql.
 
 ## Features
 
@@ -60,6 +61,9 @@ I cobbled this together from a wide variety of similar "starter" repositories. A
   <dt>Authentication</dt>
   <dd><a href="http://passportjs.org">Passport</a> authentication allows you to use all the desired strategies. The connections in REST and in real time are protected in the same way with the hooks. React-router, redux and <a href="https://github.com/mjrussell/redux-auth-wrapper">redux-auth-wrapper</a> allow you to keep control in your React app.</dd>
 
+  <dt>Database</dt>
+  <dd><a href="https://www.postgresql.org/">PostgreSQL</a> is a reliable and scalable database even not ever crashed in the past.</dd>
+    
   <dt>Progressive wep app & Offline-first</dt>
   <dd>Progressive Web Apps are user experiences that have the reach of the web, and are:<br>
 Reliable - Load instantly and never show the downasaur, even in uncertain network conditions.<br>
@@ -77,6 +81,15 @@ This new level of quality allows Progressive Web Apps to earn a place on the use
   <dt>SEO</dt>
   <dd>This project supports SEO for search engines even without support indexing of JavaScript content, thanks to server-side rendering.</dd>
 </dl>
+
+## Database
+
+If you're on a Mac, first ensure [PostgreSQL](https://www.postgresql.org/), [Postgis](http://postgis.net/) and [Redis](https://redis.io/) are installed and run the following:
+```bash
+brew install postgis postgresql redis
+brew services start postgresql
+brew services start redis
+```
 
 ## Installation
 
@@ -111,10 +124,6 @@ DevTools are not enabled during production by default.
 npm run build
 npm run start
 ```
-
-## Demo
-
-A demonstration of this app can be seen [running on heroku](https://react-hot-example.herokuapp.com/), which is a deployment of the [heroku branch](https://github.com/bertho-zero/react-redux-universal-hot-example/tree/heroku).
 
 ## Explanation
 
@@ -271,15 +280,13 @@ Although this isn't a library, we recently started versioning to make it easier 
 
 ## Contributing
 
-I am more than happy to accept external contributions to the project in the form of feedback, bug reports and even better - pull requests :) 
+I am more than happy to accept external contributions to the project in the form of feedback, bug reports and even better - pull requests. 
 
 If you would like to submit a pull request, please make an effort to follow the guide in [CONTRIBUTING.md](CONTRIBUTING.md). 
  
 ---
 Thanks for checking this out.
 
-Created by:
-– Erik Rasmussen, [@erikras](https://twitter.com/erikras)
+Created and maintened by:
 
-Maintened by:
-– Kévin Berthommier, [@bertho-zero](https://github.com/bertho-zero)
+– Jonathan Kirknes, [@JonathanKirknes](https://github.com/JonathanKirknes)
