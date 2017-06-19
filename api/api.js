@@ -114,5 +114,6 @@ app.io.on('connection', socket => {
     messageBuffer[messageIndex % bufferSize] = message;
     messageIndex++;
     app.io.emit('msg', message);
+    console.log('msg', message);
   });
 });

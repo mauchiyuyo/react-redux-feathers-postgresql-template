@@ -35,7 +35,7 @@ function initSocket() {
     socket.emit('my other event', { my: 'data from client' });
   });
   socket.on('msg', data => {
-    console.log(data);
+    console.log('msg', data);
   });
 
   return socket;
@@ -84,23 +84,11 @@ Promise.all([window.__data ? true : isOnline(), getStoredState(offlinePersistCon
 
     if (module.hot) {
       module.hot.accept('./routes', () => {
-        // const nextRoutes = require('./routes')(store);
-        // render(nextRoutes);
-
         setImmediate(() => {
           ReactDOM.unmountComponentAtNode(dest);
           const nextRoutes = require('./routes')(store);
           render(nextRoutes);
         });
-        // const devToolsDest = document.createElement('div');
-        // window.document.body.insertBefore(devToolsDest, null);
-        // const DevTools = require('./containers/DevTools/DevTools');
-        // ReactDOM.render(
-        //   <Provider store={store} key="provider">
-        //     <DevTools />
-        //   </Provider>,
-        //   devToolsDest
-        // );
       });
     }
 
@@ -112,30 +100,5 @@ Promise.all([window.__data ? true : isOnline(), getStoredState(offlinePersistCon
         console.error('Server-side React render was discarded.' +
           'Make sure that your initial render does not contain any client-side code.');
       }
-    }
-
-    // if (__DEVTOOLS__ && !window.devToolsExtension) {
-    //   const devToolsDest = document.createElement('div');
-    //   window.document.body.insertBefore(devToolsDest, null);
-    //   const DevTools = require('./containers/DevTools/DevTools');
-    //   ReactDOM.render(
-    //     <Provider store={store} key="provider">
-    //       <DevTools />
-    //     </Provider>
-    //   );
-    // }
-
-    if (online && !__DEVELOPMENT__ && 'serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/dist/service-worker.js', { scope: '/' })
-        .then(() => {
-          console.log('Service worker registered!');
-        })
-        .catch(error => {
-          console.log('Error registering service worker: ', error);
-        });
-
-      navigator.serviceWorker.ready.then((/* registration */) => {
-        console.log('Service Worker Ready');
-      });
     }
   });

@@ -24,6 +24,8 @@ import { createApp } from './app';
 process.on('unhandledRejection', error => console.error(error));
 
 const targetUrl = `http://${config.apiHost}:${config.apiPort}`;
+console.log(targetUrl);
+
 const pretty = new PrettyError();
 const app = express();
 const server = new http.Server(app);
