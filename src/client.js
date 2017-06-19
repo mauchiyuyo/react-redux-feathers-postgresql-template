@@ -13,7 +13,7 @@ import { useScroll } from 'react-router-scroll';
 import { getStoredState } from 'redux-persist';
 import localForage from 'localforage';
 import { socket, createApp } from 'app';
-import { Provider } from 'components';
+import { Provider } from './components';
 import createStore from './redux/create';
 import ApiClient from './helpers/ApiClient';
 import getRoutes from './routes';
@@ -84,8 +84,23 @@ Promise.all([window.__data ? true : isOnline(), getStoredState(offlinePersistCon
 
     if (module.hot) {
       module.hot.accept('./routes', () => {
-        const nextRoutes = require('./routes')(store);
-        render(nextRoutes);
+        // const nextRoutes = require('./routes')(store);
+        // render(nextRoutes);
+
+        setImmediate(() => {
+          ReactDOM.unmountComponentAtNode(dest);
+          const nextRoutes = require('./routes')(store);
+          render(nextRoutes);
+        });
+        // const devToolsDest = document.createElement('div');
+        // window.document.body.insertBefore(devToolsDest, null);
+        // const DevTools = require('./containers/DevTools/DevTools');
+        // ReactDOM.render(
+        //   <Provider store={store} key="provider">
+        //     <DevTools />
+        //   </Provider>,
+        //   devToolsDest
+        // );
       });
     }
 
@@ -99,17 +114,16 @@ Promise.all([window.__data ? true : isOnline(), getStoredState(offlinePersistCon
       }
     }
 
-    if (__DEVTOOLS__ && !window.devToolsExtension) {
-      const devToolsDest = document.createElement('div');
-      window.document.body.insertBefore(devToolsDest, null);
-      const DevTools = require('./containers/DevTools/DevTools');
-      ReactDOM.render(
-        <Provider store={store} key="provider">
-          <DevTools />
-        </Provider>,
-        devToolsDest
-      );
-    }
+    // if (__DEVTOOLS__ && !window.devToolsExtension) {
+    //   const devToolsDest = document.createElement('div');
+    //   window.document.body.insertBefore(devToolsDest, null);
+    //   const DevTools = require('./containers/DevTools/DevTools');
+    //   ReactDOM.render(
+    //     <Provider store={store} key="provider">
+    //       <DevTools />
+    //     </Provider>
+    //   );
+    // }
 
     if (online && !__DEVELOPMENT__ && 'serviceWorker' in navigator) {
       navigator.serviceWorker.register('/dist/service-worker.js', { scope: '/' })

@@ -2,8 +2,8 @@ import React from 'react';
 import { IndexRoute, Route } from 'react-router';
 import { routerActions } from 'react-router-redux';
 import { UserAuthWrapper } from 'redux-auth-wrapper';
-import { App, Home, NotFound } from 'containers';
-import getRoutesUtils from 'utils/routes';
+import { App, Home, NotFound } from './containers';
+import getRoutesUtils from './utils/routes';
 
 // eslint-disable-next-line import/no-dynamic-require
 if (typeof System.import === 'undefined') System.import = module => Promise.resolve(require(module));

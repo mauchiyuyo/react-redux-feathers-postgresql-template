@@ -16,10 +16,10 @@ import createHistory from 'react-router/lib/createMemoryHistory';
 import { Provider } from 'components';
 import config from 'config';
 import createStore from 'redux/create';
-import ApiClient from 'helpers/ApiClient';
-import Html from 'helpers/Html';
-import getRoutes from 'routes';
-import { createApp } from 'app';
+import ApiClient from './helpers/ApiClient';
+import Html from './helpers/Html';
+import getRoutes from './routes';
+import { createApp } from './app';
 
 process.on('unhandledRejection', error => console.error(error));
 
