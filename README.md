@@ -26,8 +26,3 @@ npm run dev
 npm run build
 npm run start
 ```
-
-
-Created and maintened by:
-
-– Jonathan Kirknes, [@JonathanKirknes](https://github.com/JonathanKirknes)
