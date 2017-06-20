@@ -62,14 +62,6 @@ export default store => {
 
       {/* Routes */}
       <Route path="login" getComponent={() => System.import('./containers/Login/Login')} />
-      <Route path="about" getComponent={() => System.import('./containers/About/About')} />
-      <Route
-        path="survey"
-        getComponent={() => injectReducerAndRender(
-          { survey: System.import('./redux/modules/survey') },
-          System.import('./containers/Survey/Survey')
-        )}
-      />
       <Route
         path="widgets"
         getComponent={() => injectReducerAndRender(
@@ -77,7 +69,6 @@ export default store => {
           System.import('./containers/Widgets/Widgets')
         )}
       />
-      <Route path="chat" getComponent={() => System.import('./containers/Chat/Chat')} />
 
       {/* Catch all route */}
       <Route path="*" component={NotFound} status={404} />

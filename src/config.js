@@ -15,7 +15,7 @@ module.exports = Object.assign({
   apiHost: process.env.APIHOST || 'localhost',
   apiPort: process.env.APIPORT,
   app: {
-    title: 'React Redux Feathers',
+    title: 'THE DAILY',
     description: 'Cool Hot Example!'
   }
 }, environment);
