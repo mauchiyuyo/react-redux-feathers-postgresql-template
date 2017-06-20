@@ -16,6 +16,6 @@ module.exports = Object.assign({
   apiPort: process.env.APIPORT,
   app: {
     title: 'THE DAILY',
-    description: 'Cool Hot Example!'
+    description: 'Initial version of THE DAILY'
   }
 }, environment);
