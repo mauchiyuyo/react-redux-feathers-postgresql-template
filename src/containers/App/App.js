@@ -10,7 +10,7 @@ import Alert from 'react-bootstrap/lib/Alert';
 import Helmet from 'react-helmet';
 import { isLoaded as isInfoLoaded, load as loadInfo } from 'redux/modules/info';
 import { isLoaded as isAuthLoaded, load as loadAuth, logout } from 'redux/modules/auth';
-import { Notifs, InfoBar } from 'components';
+import { Notifs } from 'components';
 import { push } from 'react-router-redux';
 import config from 'config';
 import { asyncConnect } from 'redux-connect';
@@ -74,13 +74,11 @@ export default class App extends Component {
 
     return (
       <div className={styles.app}>
-        <Helmet {...config.app.head} />
         <Navbar fixedTop>
           <Navbar.Header>
             <Navbar.Brand>
-              <IndexLink to="/" activeStyle={{ color: '#33e0ff' }}>
-                <div className={styles.brand} />
-                <span>{config.app.title}</span>
+              <IndexLink to="/" activeStyle={{ color: '#ff00000' }}>
+                <span>THE DAILY</span>
               </IndexLink>
             </Navbar.Brand>
             <Navbar.Toggle />
@@ -93,10 +91,10 @@ export default class App extends Component {
               </LinkContainer>}
 
               <LinkContainer to="/chat">
-                <NavItem>Chat</NavItem>
+                <NavItem>Chat!</NavItem>
               </LinkContainer>
               <LinkContainer to="/widgets">
-                <NavItem>Widgets</NavItem>
+                <NavItem>Widgets!</NavItem>
               </LinkContainer>
               <LinkContainer to="/survey">
                 <NavItem>Survey</NavItem>
@@ -143,10 +141,9 @@ export default class App extends Component {
 
           {children}
         </div>
-        <InfoBar />
 
         <div className="well text-center">
-          Have questions? Ask for help{' '}
+          Have questions?{' '}
           <a
             href="https://github.com/erikras/react-redux-universal-hot-example/issues"
             target="_blank"
@@ -160,7 +157,6 @@ export default class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            #react-redux-universal
           </a>
           {' '}Discord channel.
         </div>

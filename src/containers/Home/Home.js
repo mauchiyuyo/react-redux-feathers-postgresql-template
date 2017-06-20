@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
-import { CounterButton, GithubButton } from 'components';
+import { CounterButton } from 'components';
 import config from 'config';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
@@ -18,7 +18,7 @@ export default class Home extends Component {
   };
 
   render() {
-    const { online } = this.props;
+    // const { online } = this.props;
     const styles = require('./Home.scss');
     // require the logo image both from client and server
     const logoImage = require('./logo.png');
@@ -35,40 +35,6 @@ export default class Home extends Component {
             <h1>{config.app.title}</h1>
 
             <h2>{config.app.description}</h2>
-
-            <p>
-              <a
-                className={styles.github}
-                href="https://github.com/erikras/react-redux-universal-hot-example"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fa fa-github" /> View on Github
-              </a>
-            </p>
-            {online && <GithubButton
-              user="erikras"
-              repo="react-redux-universal-hot-example"
-              type="star"
-              width={160}
-              height={30}
-              count
-              large
-            />}
-            {online && <GithubButton
-              user="erikras"
-              repo="react-redux-universal-hot-example"
-              type="fork"
-              width={160}
-              height={30}
-              count
-              large
-            />}
-
-            <p className={styles.humility}>
-              Created and maintained by{' '}
-              <a href="https://twitter.com/erikras" target="_blank" rel="noopener noreferrer">@erikras</a>.
-            </p>
           </div>
         </div>
 

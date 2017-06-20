@@ -20,10 +20,10 @@ export default class About extends Component {
     const kitten = require('./kitten.jpg');
     return (
       <div className="container">
-        <h1>About Us</h1>
+        <h1>About</h1>
         <Helmet title="About Us1" />
 
-        <p>This project was originally created by Erik Rasmussen111
+        <p>This project was originally created by
           (<a href="https://twitter.com/erikras" target="_blank" rel="noopener noreferrer">@erikras</a>), but has since
           seen many contributions from the open source community. Thank you to{' '}
           <a
